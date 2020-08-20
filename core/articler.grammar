@@ -1,0 +1,61 @@
+Articler Article Grammar
+
+article         ::= metadata article_body
+
+metadata        ::= (metadata_line | NEWLINE)*
+metadata_line   ::= '@' metadata_tag '=' line
+metadata_tag    ::= 'id'
+                |   'title'
+                |   'author'
+                |   'date'
+                |   'note'
+                |   'thumbnail' | 'thumbnailtext' | 'thumbnailcaption'
+                |   'fa-icon'   | 'fa-icontarget'
+
+article_body    ::= (statement | NEWLINE)*
+
+statement       ::= heading         => FIRST() = #
+                |   paragraph       => FIRST() = ¬(\n, #, !, <html>, ```, <!--)
+                |   figure          => FIRST() = !
+                |   html_block      => FIRST() = '<html>'
+                |   line_comment    => FIRST() = <!--
+                |   code_block      => FIRST() = '```'
+
+heading         ::= '#'      line
+                |   '##'     line
+                |   '###'    line
+                |   '####'   line
+                |   '#####'  line
+                |   '######' line
+
+paragraph       ::= line
+                |   line+ NEWLINE
+
+figure          ::= '!''[' CAPTION (',' figure_data)* ']''('URL')'
+figure_data     ::= 'width'     '=' INT '%'
+                |   'rounding'  '=' INT 'px'
+
+// TODO: review this -- escape html that isnt in these tags
+// Allow disabling html tag
+// parse(article)   =>  parse(article, options)
+// options          =>  {
+//      allow_embed_html_mode : [allow | no_script | none], etc }
+html_block      ::= '<' 'html' '>' (text | line)* '<' '/' 'html' '>'
+
+line_comment    ::= '<!--' text '-->' NEWLINE
+
+code_block      ::= '```' (text | line)* '```'
+
+// TODO: how to do commands, commands should start with "!"?
+command         ::= '\autotoc' '(' number ')'
+                |   '\toc' '(' ')'
+                |   '\hr'  '(' ')'
+
+// TODO: Full text grammar: i/em, b, u, a, code (```code```), command
+text            ::= ASCII - {NEWLINE}   // NOTE: temporary
+line            ::= text NEWLINE
+
+INT             ::= [0-9]+
+URL             ::= [a-z A-Z 0-9 \ / - _ . : % @ ? # =]+
+CAPTION         ::= [a-z A-Z 0-9 \ / - _ . : % @ ? # = ( )]+
+ASCII           ::= printable chars in extended ascii

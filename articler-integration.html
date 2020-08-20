@@ -1,0 +1,25 @@
+<script type="module">
+    import {default as to_html, to_html_debug} from "./articler-core/core/articler.js";
+
+    document.articler = {
+        "to_html":          function (article) { return to_html(article); },
+        "to_html_debug":    function (article) { return to_html_debug(article); },
+        
+        /**
+         * Assumes articler article has iframe
+         * 
+         * @param [String] CSS Selector ID of an iframe containing the *.articler contents
+         */
+        "add_to_page":
+        function (article_iframe_id) {
+            var article_iframe = document.getElementById(article_iframe_id);
+            var article_raw = article_iframe.contentWindow.document.body.childNodes[0].innerHTML;
+
+            var article_html = document.articler.to_html(article_raw);
+            console.log(article_html);
+
+            article_iframe.parentNode.insertAdjacentHTML("beforeend", article_html);
+        },
+    };
+    
+</script>

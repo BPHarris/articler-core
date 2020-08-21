@@ -25,7 +25,7 @@ export default class Figure extends AstNode
         var s_rounding = this.rounding ? `rounding: ${this.rounding}px` : "";
         var html =
 `<figure style="${s_width}; ${s_rounding};">
-    <img src="${this.url}" alt="${this.alt}"></img>
+    <img loading="lazy" src="${this.url}" alt="${this.alt}"></img>
     <figcaption>${this.caption}</figcaption>
 </figure>`;
         return html;
@@ -35,7 +35,7 @@ export default class Figure extends AstNode
     {
         var html = 
 `<figure>
-    <img src="${this.url}" alt="${this.alt}"></img>
+    <img loading="lazy" src="${this.url}" alt="${this.alt}"></img>
     <figcaption>${this.caption}</figcaption>
 </figure>`;
         return html;

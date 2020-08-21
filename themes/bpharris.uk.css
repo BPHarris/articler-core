@@ -114,9 +114,18 @@
     padding: 0.5em 0em 0.5em 0em;
 }
 
-.articler-article figure            { font-size: 3em; }
-.articler-article figure img        { width: 50%; border-radius: 4px; }
-.articler-article figure figcaption { font-style: italic; }
+.articler-article figure {
+    font-size: 3em;
+}
+.articler-article figure img {
+    width: 50%;
+    border-radius: 4px;
+
+    box-shadow: 0px 0px 2px 2px var(--nord0);
+}
+.articler-article figure figcaption {
+    font-style: italic;
+}
 
 @media only screen and (max-width: 950px)
 {

@@ -1,0 +1,124 @@
+/** css for articler article contents */
+
+:root {
+    /** Nord Colours **/
+    /* Polar Nights */
+    --nord0:  #2e3440;
+    --nord1:  #3b4252;
+    --nord2:  #434c5e;
+    --nord3:  #4c566a;
+    /* Snow Storm */
+    --nord4:  #d8dee9;
+    --nord5:  #e5e9f0;
+    --nord6:  #eceff4;
+    /* Frost */
+    --nord7:  #8fbcbb;
+    --nord8:  #88c0d0;
+    --nord9:  #81a1c1;
+    --nord10: #5e81ac;
+    /* Aurora */
+    --nord11: #bf616a;
+    --nord12: #d08770;
+    --nord13: #ebcb8b;
+    --nord14: #a3be8c;
+    --nord15: #b48ead;
+}
+
+
+/** --------  -------- ARTICLER ARTICLE STYLING --------  -------- **/
+.articler-article {}
+
+
+/** --------  -------- EDITOR/DEBUG STYLING --------  -------- **/
+/** {debug, metadata, error} box shape and text **/
+.articler-debug, .articler-metadata, .articler-error {
+    /* padding */
+    padding: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+
+    /* box */
+    box-shadow: 0 0 8px 8px var(--nord0);
+    border-radius: 4px;
+    border: 2px solid transparent;
+
+    /* text */
+    font-weight: normal;
+}
+/** {debug, metadata, error} colour override **/
+.articler-debug     { background-color: var(--nord15); }
+.articler-metadata  { background-color: var(--nord10); }
+.articler-error     { background-color: var(--nord11); }
+
+/** Line spacing in {debug, metadata, error} **/
+.articler-debug > *, .articler-metadata > *, .articler-error > * {
+    padding-bottom: 0.5em;
+}
+
+/** Make metadata and error message inline **/
+.articler-metadata .metadata > * { display: inline; }
+
+/** Hide debug and metadata by default (open in js) **/
+.articler-debug, .articler-metadata { display: none; }
+
+/** Make error type bold **/
+.articler-error .type { font-weight: bold; padding-bottom: 1em; }
+
+/** Metadata layout **/
+.articler-metadata .metadata {
+    display: flex;
+    width: 100%;
+}
+.articler-metadata .metadata > *  { width: 33.333%; }
+.articler-metadata .metadata .tag { font-weight: bold; }
+
+
+/** --------  -------- ARTICLE CONTENT STYLING --------  -------- **/
+/** articler style **/
+.articler-title {
+    text-align: left;
+    font-size: 5em;
+    font-weight: normal;
+    
+    padding-bottom: 0.25em;
+}
+
+.articler-article h1 {
+    font-size: 4em;
+    font-weight: 300;
+
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+.articler-article h2 {
+    font-size: 3em;
+    font-weight: 300;
+}
+.articler-article h3 {}
+.articler-article h4 {}
+.articler-article h5 {}
+.articler-article h6 {}
+
+/* Sub+heading padding */
+.articler-article h2, .articler-article h3,
+.articler-article h4, .articler-article h5,
+.articler-article h6 {
+    padding-bottom: 0.25em;
+}
+
+.articler-article p {
+    text-align: justify;
+    font-size: 3em;
+    font-weight: 100;
+    
+    padding: 0.5em 0em 0.5em 0em;
+}
+
+.articler-article figure            { font-size: 3em; }
+.articler-article figure img        { width: 50%; border-radius: 4px; }
+.articler-article figure figcaption { font-style: italic; }
+
+@media only screen and (max-width: 950px)
+{
+    .articler-article p { text-align: left; font-size: 2.5em; }
+}

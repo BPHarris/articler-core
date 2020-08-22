@@ -1,7 +1,7 @@
 /** css for articler article contents */
 
 :root {
-    /** Nord Colours **/
+    /* --- Nord Colours --- */
     /* Polar Nights */
     --nord0:  #2e3440;
     --nord1:  #3b4252;
@@ -26,12 +26,19 @@
 
 
 /** --------  -------- ARTICLER ARTICLE STYLING --------  -------- **/
-.articler-article {}
+.articler-article {
+    /* Should anything be here? */
+}
 
 
 /** --------  -------- EDITOR/DEBUG STYLING --------  -------- **/
-/** {debug, metadata, error} box shape and text **/
-.articler-debug, .articler-metadata, .articler-error {
+/* 
+TODO: This section could be better organised, see "ARTICLE CONTENT STYLING"
+*/
+/* Box shape and text */
+.articler-debug,
+.articler-metadata,
+.articler-error {
     /* padding */
     padding: 1em;
     padding-bottom: 0.5em;
@@ -45,6 +52,7 @@
     /* text */
     font-weight: normal;
 }
+
 /** {debug, metadata, error} colour override **/
 .articler-debug     { background-color: var(--nord15); }
 .articler-metadata  { background-color: var(--nord10); }
@@ -74,60 +82,102 @@
 
 
 /** --------  -------- ARTICLE CONTENT STYLING --------  -------- **/
-/** articler style **/
-.articler-title {
-    text-align: left;
-    font-size: 5em;
-    font-weight: normal;
-    
-    padding-bottom: 0.25em;
-}
-
-.articler-article h1 {
-    font-size: 4em;
-    font-weight: 300;
-
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-}
-.articler-article h2 {
-    font-size: 3em;
-    font-weight: 300;
-}
-.articler-article h3 {}
-.articler-article h4 {}
-.articler-article h5 {}
-.articler-article h6 {}
-
-/* Sub+heading padding */
-.articler-article h2, .articler-article h3,
-.articler-article h4, .articler-article h5,
+/* Text Alignment */
+.articler-title,
+.articler-article h1,
+.articler-article h2,
+.articler-article h3,
+.articler-article h4,
+.articler-article h5,
 .articler-article h6 {
-    padding-bottom: 0.25em;
+    text-align: left;
 }
 
 .articler-article p {
     text-align: justify;
-    font-size: 3em;
-    font-weight: 100;
-    
+}
+
+
+/* Padding */
+.articler-title {
+    padding-bottom: 0.25em;
+}
+
+.articler-article h1 {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.articler-article h2,
+.articler-article h3,
+.articler-article h4,
+.articler-article h5,
+.articler-article h6 {
+    padding-bottom: 0.25em;
+}
+
+.articler-article p,
+.articler-article figure {
     padding: 0.5em 0em 0.5em 0em;
 }
 
+
+/* Font weight */
+.articler-title {
+    font-weight: normal;
+}
+
+.articler-article h1,
+.articler-article h2,
+.articler-article h3,
+.articler-article h4,
+.articler-article h5,
+.articler-article h6 {
+    font-weight: 300;
+}
+
+.articler-article p {
+    font-weight: 100;
+}
+
+
+/* Font size */
+.articler-title {
+    font-size: 5em;
+}
+
+.articler-article h1 {
+    font-size: 4em;
+}
+
+.articler-article h2,
+.articler-article h3,
+.articler-article h4,
+.articler-article h5,
+.articler-article h6,
+.articler-article p,
 .articler-article figure {
     font-size: 3em;
 }
+
+
+/* Figures */
 .articler-article figure img {
     width: 50%;
     border-radius: 4px;
 
     box-shadow: 0px 0px 2px 2px var(--nord0);
 }
+
 .articler-article figure figcaption {
     font-style: italic;
 }
 
-@media only screen and (max-width: 950px)
-{
-    .articler-article p { text-align: left; font-size: 2.5em; }
+
+/* Media rules */
+@media only screen and (max-width: 950px) {
+    .articler-article p {
+        text-align: left;
+        font-size: 2.5em;
+    }
 }

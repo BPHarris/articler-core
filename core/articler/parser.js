@@ -2,7 +2,7 @@
 
 import "./util.js";
 
-import Article from "./ast/article.js";
+import Article from "./ast/Article.js";
 import Metadata from "./ast/Metadata.js";
 
 import ArticleBody from "./ast/ArticleBody.js";
